@@ -31,8 +31,11 @@ class TOCModal extends SuggestModal {
 	onOpen() {
 		super.onOpen();
 		
-		// パンくずリストをモーダルの上部（検索窓の下）に挿入する
-		this.inputEl.parentElement.appendChild(this.breadcrumbEl);
+		// 検索窓が入っているコンテナを探して、その直後にパンくずリストを入れる
+		const inputContainer = this.inputEl.parentElement;
+		if (inputContainer) {
+			inputContainer.insertAdjacentElement('afterend', this.breadcrumbEl);
+		}
 		
 		// 画面が出来上がるのを一瞬待ってから、今いる場所にフォーカスを当てる
 		requestAnimationFrame(() => {
@@ -78,7 +81,7 @@ class TOCModal extends SuggestModal {
 		}
 
 		if (breadcrumbs.length > 0) {
-			this.breadcrumbEl.setText(breadcrumbs.join(" 〉 "));
+			this.breadcrumbEl.setText(breadcrumbs.join(" 〉 ") + " 〉");
 			this.breadcrumbEl.style.display = "block";
 		} else {
 			this.breadcrumbEl.style.display = "none";
