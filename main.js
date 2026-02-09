@@ -24,6 +24,21 @@ class TOCModal extends SuggestModal {
 		this.setPlaceholder("見出しを検索・選択してください");
 	}
 
+	// モーダルが開いた時の処理
+	onOpen() {
+		super.onOpen();
+		
+		// 画面が出来上がるのを一瞬待ってから、今いる場所にフォーカスを当てる
+		requestAnimationFrame(() => {
+			const suggestions = this.getSuggestions("");
+			const currentIndex = suggestions.findIndex(s => s.isCurrent);
+			
+			if (currentIndex !== -1 && this.chooser) {
+				this.chooser.setSelectedItem(currentIndex);
+			}
+		});
+	}
+
 	// 表示するリスト（見出し一覧）を作る
 	getSuggestions(query) {
 		const cache = this.app.metadataCache.getFileCache(this.view.file);
