@@ -1,0 +1,17 @@
+.toc-nav-item {
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+.is-current-heading {
+	font-weight: bold;
+	color: var(--text-accent);
+}
+
+.current-marker {
+	margin-left: 12px;
+	font-size: 0.9em;
+	color: var(--text-accent);
+	opacity: 1;
+}

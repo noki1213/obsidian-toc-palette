@@ -1,0 +1,10 @@
+{
+	"id": "obsidian-toc-navigator",
+	"name": "TOC Navigator",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Hotkeys to navigate through headings with an interactive TOC.",
+	"author": "noki",
+	"authorUrl": "https://obsidian.md",
+	"isDesktopOnly": false
+}
