@@ -15,3 +15,15 @@
 	margin-right: 8px;
 	font-family: var(--font-monospace);
 }
+
+.toc-breadcrumb {
+	padding: 4px 12px;
+	font-size: 0.8em;
+	color: var(--text-muted);
+	background-color: var(--background-secondary);
+	border-bottom: 1px solid var(--divider-color);
+	margin-bottom: 4px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

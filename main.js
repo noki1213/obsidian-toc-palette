@@ -22,11 +22,17 @@ class TOCModal extends SuggestModal {
 		super(app);
 		this.view = view;
 		this.setPlaceholder("見出しを検索・選択してください");
+		
+		// パンくずリストを表示するためのエリアを作る
+		this.breadcrumbEl = createDiv({ cls: "toc-breadcrumb" });
 	}
 
 	// モーダルが開いた時の処理
 	onOpen() {
 		super.onOpen();
+		
+		// パンくずリストをモーダルの上部（検索窓の下）に挿入する
+		this.inputEl.parentElement.appendChild(this.breadcrumbEl);
 		
 		// 画面が出来上がるのを一瞬待ってから、今いる場所にフォーカスを当てる
 		requestAnimationFrame(() => {
@@ -35,8 +41,48 @@ class TOCModal extends SuggestModal {
 			
 			if (currentIndex !== -1 && this.chooser) {
 				this.chooser.setSelectedItem(currentIndex);
+				this.updateBreadcrumb(suggestions[currentIndex]);
 			}
 		});
+
+		// 選択が変わったときにパンくずリストを更新する仕組み
+		const self = this;
+		const originalSetSelectedItem = this.chooser.setSelectedItem;
+		this.chooser.setSelectedItem = function(index, evt) {
+			originalSetSelectedItem.apply(this, [index, evt]);
+			const suggestions = self.getSuggestions(self.inputEl.value);
+			if (suggestions[index]) {
+				self.updateBreadcrumb(suggestions[index]);
+			}
+		};
+	}
+
+	// パンくずリストを更新する
+	updateBreadcrumb(selectedItem) {
+		const cache = this.app.metadataCache.getFileCache(this.view.file);
+		if (!cache || !cache.headings) return;
+
+		const allHeadings = cache.headings;
+		const breadcrumbs = [];
+		
+		// 選択された見出しの親階層を辿る
+		let currentLevel = selectedItem.level;
+		const selectedIndex = allHeadings.findIndex(h => h.position.start.offset === selectedItem.position.start.offset);
+		
+		for (let i = selectedIndex; i >= 0; i--) {
+			if (allHeadings[i].level < currentLevel) {
+				breadcrumbs.unshift(allHeadings[i].heading);
+				currentLevel = allHeadings[i].level;
+			}
+			if (currentLevel === 1) break;
+		}
+
+		if (breadcrumbs.length > 0) {
+			this.breadcrumbEl.setText(breadcrumbs.join(" 〉 "));
+			this.breadcrumbEl.style.display = "block";
+		} else {
+			this.breadcrumbEl.style.display = "none";
+		}
 	}
 
 	// 表示するリスト（見出し一覧）を作る
