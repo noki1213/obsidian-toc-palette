@@ -57,7 +57,11 @@ class TOCModal extends SuggestModal {
 		// 見出しのレベルに合わせてインデント（隙間）を作る
 		container.style.paddingLeft = `${(item.level - 1) * 20}px`;
 		
-		const textEl = container.createSpan({ text: item.heading });
+		// 見出しレベル（H1, H2...）を表示
+		container.createSpan({ text: `H${item.level} `, cls: "toc-level-prefix" });
+		
+		// 見出しの本文を表示
+		container.createSpan({ text: item.heading });
 		
 		// 今いる場所だったら印をつける
 		if (item.isCurrent) {
