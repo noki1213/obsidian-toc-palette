@@ -7,13 +7,16 @@ A streamlined Obsidian plugin for quickly navigating through your note's heading
 - **Current Location Focus**: Automatically highlights and focuses on the heading where your cursor is currently located when you open the palette.
 - **Visual Hierarchy**: Displays heading levels (H1, H2, etc.) and a breadcrumb navigation bar (e.g., H1 〉 H2 〉) to show the exact hierarchy of the selected item.
 - **Intuitive Navigation**: Navigate with arrow keys and press Enter to jump. It prevents looping at the boundaries so you always know when you've reached the start or end.
-- **Sleek Interface**: A minimalist design with a dynamic height that adjusts to the number of headings in your note.
+- **Sleling Interface**: A minimalist design with a dynamic height that adjusts to the number of headings in your note.
 
 ## How to Use
 
 1. Open the Command Palette (`Cmd/Ctrl + P`).
 2. Search for and execute `Obsidian-TOC-Palette: Open TOC Navigator`.
 3. Use the arrow keys to select a heading and press `Enter` to jump to it.
+
+## Author
+- noki
 
 ---
 
@@ -34,5 +37,5 @@ A streamlined Obsidian plugin for quickly navigating through your note's heading
 2. `Obsidian-TOC-Palette: Open TOC Navigator` を実行します。
 3. 目次が表示されるので、矢印キーで見出しを選んで `Enter` を押します。
 
-## Author
+## 制作
 - noki
