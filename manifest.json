@@ -1,6 +1,6 @@
 {
-	"id": "obsidian-toc-palette",
-	"name": "Obsidian-TOC-Palette",
+	"id": "obsidian-toc-navigator",
+	"name": "Obsidian-TOC-Navigator",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
 	"description": "Hotkeys to navigate through headings with an interactive TOC.",

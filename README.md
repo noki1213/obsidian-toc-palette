@@ -1,4 +1,4 @@
-# Obsidian-TOC-Palette
+# Obsidian-TOC-Navigator
 
 A streamlined Obsidian plugin for quickly navigating through your note's headings using an interactive, VS Code-inspired TOC palette.
 
@@ -12,7 +12,7 @@ A streamlined Obsidian plugin for quickly navigating through your note's heading
 ## How to Use
 
 1. Open the Command Palette (`Cmd/Ctrl + P`).
-2. Search for and execute `Obsidian-TOC-Palette: Open TOC Navigator`.
+2. Search for and execute `Obsidian-TOC-Navigator: Open TOC Navigator`.
 3. Use the arrow keys to select a heading and press `Enter` to jump to it.
 
 ## Author
@@ -20,7 +20,7 @@ A streamlined Obsidian plugin for quickly navigating through your note's heading
 
 ---
 
-# Obsidian-TOC-Palette (日本語)
+# Obsidian-TOC-Navigator (日本語)
 
 ショートカットキーで今開いているファイルの目次を表示し、素早く移動するためのObsidianプラグインです。
 
@@ -34,7 +34,7 @@ A streamlined Obsidian plugin for quickly navigating through your note's heading
 ## 使い方
 
 1. コマンドパレット（`Cmd/Ctrl + P`）を開きます。
-2. `Obsidian-TOC-Palette: Open TOC Navigator` を実行します。
+2. `Obsidian-TOC-Navigator: Open TOC Navigator` を実行します。
 3. 目次が表示されるので、矢印キーで見出しを選んで `Enter` を押します。
 
 ## 制作
