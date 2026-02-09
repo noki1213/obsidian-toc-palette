@@ -29,6 +29,7 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 	z-index: 10;
+	min-height: 31px; /* 高さを固定してガタつきを防止 */
 }
 
 /* モーダルの高さを中身に合わせる設定 */

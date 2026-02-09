@@ -90,12 +90,9 @@ class TOCModal extends SuggestModal {
 			if (currentLevel === 1) break;
 		}
 
-		if (breadcrumbs.length > 0) {
-			this.breadcrumbEl.setText(breadcrumbs.join(" 〉 ") + " 〉");
-			this.breadcrumbEl.style.display = "block";
-		} else {
-			this.breadcrumbEl.style.display = "none";
-		}
+		// H1の時（breadcrumbsが空）でも、エリアは表示したまま「 〉」だけ出す
+		this.breadcrumbEl.setText(breadcrumbs.join(" 〉 ") + (breadcrumbs.length > 0 ? " 〉" : " 〉"));
+		this.breadcrumbEl.style.display = "block";
 	}
 
 	// 表示するリスト（見出し一覧）を作る
