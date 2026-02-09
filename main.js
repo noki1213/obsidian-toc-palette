@@ -30,6 +30,12 @@ class TOCModal extends SuggestModal {
 	// モーダルが開いた時の処理
 	onOpen() {
 		super.onOpen();
+
+		// モーダル自体に専用のクラスをつけて、CSSで高さを調整できるようにする
+		const modalEl = this.contentEl.closest('.modal');
+		if (modalEl) {
+			modalEl.addClass("toc-navigator-modal");
+		}
 		
 		// 検索窓が入っているコンテナを探して、その直後にパンくずリストを入れる
 		const inputContainer = this.inputEl.parentElement;
