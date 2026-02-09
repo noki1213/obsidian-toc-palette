@@ -62,7 +62,7 @@ class TOCModal extends SuggestModal {
 		// 今いる場所だったら印をつける
 		if (item.isCurrent) {
 			container.addClass("is-current-heading");
-			container.createSpan({ text: " 〉", cls: "current-marker" });
+			container.createSpan({ text: " ●", cls: "current-marker" });
 		}
 	}
 
