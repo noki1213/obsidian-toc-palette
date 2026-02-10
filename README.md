@@ -1,41 +1,121 @@
-# Obsidian-TOC-Navigator
+> Japanese documentation is available below. (日本語ドキュメントは下部にあります)
 
-A streamlined Obsidian plugin for quickly navigating through your note's headings using an interactive, VS Code-inspired TOC palette.
+# TOC Navigator
+
+An Obsidian plugin that displays an interactive table of contents for the current note. Quickly navigate to any heading with keyboard shortcuts.
 
 ## Features
 
-- **Current Location Focus**: Automatically highlights and focuses on the heading where your cursor is currently located when you open the palette.
-- **Visual Hierarchy**: Displays heading levels (H1, H2, etc.) and a breadcrumb navigation bar (e.g., H1 〉 H2 〉) to show the exact hierarchy of the selected item.
-- **Intuitive Navigation**: Navigate with arrow keys and press Enter to jump. It prevents looping at the boundaries so you always know when you've reached the start or end.
-- **Sleling Interface**: A minimalist design with a dynamic height that adjusts to the number of headings in your note.
+### Interactive TOC Modal
 
-## How to Use
+- Opens a searchable list of all headings (H1 through H6) in the current note.
+- Headings are indented according to their level for a clear visual hierarchy.
+- Each heading shows its level prefix (H1, H2, H3, etc.).
+- The heading where your cursor is currently located is automatically highlighted when the modal opens.
 
-1. Open the Command Palette (`Cmd/Ctrl + P`).
-2. Search for and execute `Obsidian-TOC-Navigator: Open TOC Navigator`.
-3. Use the arrow keys to select a heading and press `Enter` to jump to it.
+### Breadcrumb Navigation
 
-## Author
-- noki
+- A breadcrumb bar appears between the search box and the heading list.
+- Shows the parent heading hierarchy of the currently selected item in the format: Parent H1 〉 Parent H2 〉
+- Updates dynamically as you navigate through the list with arrow keys.
+
+### Search and Filter
+
+- Type in the search box to filter headings by text.
+- Case-insensitive matching.
+- Results update in real time as you type.
+
+### Keyboard Navigation
+
+| Key | Action |
+|-----|--------|
+| Arrow Up / Down | Move through headings (stops at boundaries) |
+| Enter | Jump to the selected heading |
+| Type text | Filter headings by search query |
+
+Navigation stops at the first and last heading, so you always know when you have reached the boundary.
+
+### Click Navigation
+
+- Click on any heading in the list to jump directly to it.
+
+## Commands
+
+- Open TOC Navigator: Opens the TOC modal for the current note.
+
+This command can be assigned a custom hotkey in Obsidian settings.
+
+## Installation
+
+### Via BRAT
+
+1. Install the BRAT plugin.
+2. Add `noki1213/obsidian-toc-navigator` as a beta plugin.
+
+### Manual
+
+1. Download `main.js`, `manifest.json`, and `styles.css` from the latest release.
+2. Create a folder named `obsidian-toc-navigator` in your vault's `.obsidian/plugins/` directory.
+3. Place the downloaded files in that folder.
+4. Enable the plugin in Obsidian settings.
 
 ---
 
-# Obsidian-TOC-Navigator (日本語)
+# TOC Navigator
 
-ショートカットキーで今開いているファイルの目次を表示し、素早く移動するためのObsidianプラグインです。
+現在のノートの目次をインタラクティブに表示する Obsidian プラグインです。キーボード操作で任意の見出しにすばやく移動できます。
 
-## 特徴
+## 機能
 
-- **今の場所がすぐわかる**: 目次を開いたとき、今カーソルがある場所の見出しに自動的にフォーカスが当たります。
-- **階層構造の表示**: 各見出しに `H1`, `H2` などのレベルを表示し、さらに上部に「親見出し > 子見出し」のパンくずリストを表示します。
-- **直感的な操作**: 矢印キーで移動し、Enterでその見出しへジャンプ。一番下で止まるようになっているので、操作性が向上しています。
-- **スタイリッシュなデザイン**: VS Codeのようなミニマルで洗練された見た目を目指しました。見出しの数に合わせてパレットの高さも自動調整されます。
+### インタラクティブな目次モーダル
 
-## 使い方
+- 現在のノートにあるすべての見出し（H1 から H6）を検索可能なリストで表示します。
+- 見出しはレベルに応じてインデントされ、階層構造がわかりやすく表示されます。
+- 各見出しにはレベル表示（H1, H2, H3 など）が付きます。
+- モーダルを開いたとき、カーソルがある位置の見出しに自動的にフォーカスが当たります。
 
-1. コマンドパレット（`Cmd/Ctrl + P`）を開きます。
-2. `Obsidian-TOC-Navigator: Open TOC Navigator` を実行します。
-3. 目次が表示されるので、矢印キーで見出しを選んで `Enter` を押します。
+### パンくずナビゲーション
 
-## 制作
-- noki
+- 検索ボックスと見出しリストの間にパンくずバーが表示されます。
+- 選択中の見出しの親階層を、親 H1 〉 親 H2 〉 の形式で表示します。
+- 矢印キーで移動するたびにリアルタイムで更新されます。
+
+### 検索とフィルタリング
+
+- 検索ボックスにテキストを入力して見出しを絞り込めます。
+- 大文字・小文字を区別しません。
+- 入力に応じてリアルタイムに結果が更新されます。
+
+### キーボード操作
+
+| キー | 動作 |
+|------|------|
+| 上下キー | 見出し間を移動（先頭・末尾で停止） |
+| Enter | 選択した見出しにジャンプ |
+| テキスト入力 | 見出しを検索・フィルタリング |
+
+一番上と一番下の見出しで移動が止まるため、常に位置を把握できます。
+
+### クリック操作
+
+- リスト内の任意の見出しをクリックして、直接その場所にジャンプできます。
+
+## コマンド
+
+- Open TOC Navigator: 現在のノートの目次モーダルを開きます。
+
+このコマンドには Obsidian の設定からカスタムホットキーを割り当てられます。
+
+## インストール
+
+### BRAT 経由
+
+1. BRAT プラグインをインストールします。
+2. `noki1213/obsidian-toc-navigator` をベータプラグインとして追加します。
+
+### 手動インストール
+
+1. 最新リリースから `main.js`、`manifest.json`、`styles.css` をダウンロードします。
+2. Vault の `.obsidian/plugins/` に `obsidian-toc-navigator` フォルダを作成します。
+3. ダウンロードしたファイルをそのフォルダに配置します。
+4. Obsidian の設定でプラグインを有効にします。
